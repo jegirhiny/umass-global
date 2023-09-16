@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+}
+
+body {
+    background-color: #303030;
+    justify-content: center;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    background-color: #1e1e1e;
+    padding: 5vh 0;
+}
+
+#meme-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+#submit {
+    height: 6vh;
+    width: 12vw;
+    transition: all 600ms;
+    margin-left: auto;
+    color: #000000;
+}
+
+#submit:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+.container {
+    display: flex;
+    width: 50vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 5px solid #FFFFFF;
+    transition: all 600ms;
+    text-align: center;
+    margin: 2vh 2vw;
+    width: 500px;
+    height: 400px;
+}
+
+.tile:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+input {
+    height: 4vh;
+    width: 35vw;
+    border-radius: 10px;
+    padding: 0 0.5vw;
+    margin: 1vh 0;
+    color: #000000;
+}
+
+h2 {
+    -webkit-text-fill-color: #FFFFFF;
+    -webkit-text-stroke: 5px #000000;
+    font-size: 80px;
+}
+
+span {
+    margin: 0 2vw;
+}

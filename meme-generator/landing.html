@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Meme Generator</title>
+        <link rel="stylesheet" href="./landing.css">
+    </head>
+    <body>
+        <div id="form-container">
+            <form id="submit-form">
+                <div class="container">
+                    <h3>Text on Top</h3>
+                    <input id="top-text" placeholder="What would you like the TOP text to be?" type="text" required>
+                </div>
+                <div class="container">
+                    <h3>Image URL</h3>
+                    <input id="url" placeholder="What's the LINK to the image?" type="text" required>
+                </div>
+                <div class="container">
+                    <h3>Text on Bottom</h3>
+                    <input id="bottom-text" placeholder="What would you like the BOTTOM text to be?" type="text" required>
+                </div>
+                <div class="container">
+                    <input id="submit" value="Generate Meme" type="submit">
+                </div>                
+            </form>
+        </div>
+        <div id="meme-container"></div>
+        <script src="app.js"></script>
+    </body>
+</html>

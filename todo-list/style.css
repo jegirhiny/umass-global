@@ -1,0 +1,61 @@
+* > body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1e1e1e;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5vh 0;
+}
+
+form > input {
+    margin: 0 0.5vw;
+}
+
+h2 > button {
+    margin: 0 2vw;
+    cursor: pointer;
+}
+
+#task-value {
+    height: 4vh;
+    width: 30vw;
+    padding-left: 1vw;
+    font-size: 1.5rem;
+}
+
+#task-submit {
+    width: 3vw;
+    font-size: 1.2rem;
+}
+
+#task-submit:hover {
+    cursor: pointer;
+}
+
+#list-contents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#list-contents > h2 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.8rem;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.round-corners {
+    border-radius: 1vw;
+}

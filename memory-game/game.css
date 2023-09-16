@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    background-color: #1e1e1e;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 70vh;
+    width: 69vw;
+}
+
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 5vh 0;
+    width: 70vw;
+}
+
+div > a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    color: #FFFFFF;
+    margin: 0 3vw;
+}
+
+.tile {
+    transition: all 600ms;
+    border: #FFFFFF 2px dashed;
+    margin: 1vh 1vw;
+    height: 15vh;
+    width: 15vw;
+}
+
+.tile:hover {
+    cursor: pointer;
+}
+
+.tile-complete {
+    border: #FFFFFF 2px solid !important;
+}
