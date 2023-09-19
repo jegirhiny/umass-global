@@ -48,7 +48,11 @@ Examples:
 
 */
 function addKeyAndValue(arr, key, value) {
-    return arr.map(object => object[key] = value);
+    return arr.map(object => {
+        let modified = {...object};
+        modified[key] = value;
+        return modified;
+    })
 }
 
 /*
@@ -132,7 +136,7 @@ Examples:
 */
 
 function filterByValue(arr, key) {
-
+    return [...arr].filter(value => value[key]);
 }
 
 /*
@@ -144,8 +148,6 @@ Examples:
 */
 
 function find(arr, searchValue) {
-    // improve this method (return inside forEach)
-
     let found = undefined;
 
     arr.forEach(value => {
@@ -165,7 +167,13 @@ Examples:
 */
 
 function findInObj(arr, key, searchValue) {
+    for(const element of arr) {
+        if(element[key] === searchValue) {
+            return element;
+        }
+    }
 
+    return undefined;
 }
 
 /*
@@ -179,8 +187,15 @@ Examples:
 
 function removeVowels(str) {
     const vowels = 'aeiou';
+    let removeVowels = "";
 
-    //complete code
+    (str.toLowerCase()).split('').forEach(value => {
+        if(!vowels.includes(value)) {
+            removeVowels += value;
+        }
+    })
+
+    return removeVowels;
 }
 
 /*
@@ -192,5 +207,5 @@ Examples:
 */
 
 function doubleOddNumbers(arr) {
-
+    return [...arr].filter(value => value % 2 !== 0).map(value => value *= 2);
 }
