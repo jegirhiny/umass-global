@@ -23,7 +23,7 @@ Examples:
 
 */
 function onlyEvenValues(arr) {
-    return [...arr].filter((value, index, array) => value % 2 == 0);
+    return [...arr].filter(value => value % 2 == 0);
 }
 
 /*
@@ -48,7 +48,7 @@ Examples:
 
 */
 function addKeyAndValue(arr, key, value) {
-    return arr.map((object, index, array) => object[key] = value);
+    return arr.map(object => object[key] = value);
 }
 
 /*
@@ -87,7 +87,7 @@ Examples:
 */
 
 function doubleValuesWithMap(arr) {
-    return [...arr].map((value, index, array) => value *= 2);
+    return [...arr].map(value => value *= 2);
 }
 
 /*
@@ -110,7 +110,7 @@ Examples:
 */
 
 function extractKey(arr, key) {
-    return [...arr].map((value, index, array) => value.name)
+    return [...arr].map(value => value.name)
 }
 
 /*
@@ -121,7 +121,7 @@ Examples:
 */
 
 function extractFullName(arr) {
-    return [...arr].map((value, index, array) => value.first + ' ' + value.last)
+    return [...arr].map(value => value.first + ' ' + value.last)
 }
 
 /*
@@ -148,7 +148,7 @@ function find(arr, searchValue) {
 
     let found = undefined;
 
-    arr.forEach((value, index, array) => {
+    arr.forEach(value => {
         if(value === searchValue) {
             found = searchValue;
         }
