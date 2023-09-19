@@ -52,7 +52,11 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value) {
-    
+    return arr.reduce((accumulator, currentValue) => {
+        accumulator.push({...currentValue, [key] : value});
+
+        return accumulator;
+    }, [])
 }
 
 /*
@@ -78,5 +82,13 @@ Examples:
 */
 
 function partition(arr, callback) {
+    return arr.reduce((accumulator, currentValue) => {
+        if(callback(currentValue)) {
+            accumulator[0].push(currentValue)
+        } else {
+            accumulator[1].push(currentValue)
+        }
 
+        return accumulator;
+    }, [[], []])
 }
