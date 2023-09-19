@@ -86,7 +86,7 @@ Examples:
 */
 
 function valTimesIndex(arr) {
-    
+    return [...arr].map((value, index, array) => value *= index);
 }
 
 /*
@@ -97,7 +97,7 @@ Examples:
 */
 
 function extractKey(arr, key) {
-    
+    return [...arr].map((value, index, array) => value.name)
 }
 
 /*
@@ -108,7 +108,7 @@ Examples:
 */
 
 function extractFullName(arr) {
-    
+    return [...arr].map((value, index, array) => value.first + ' ' + value.last)
 }
 
 /*
@@ -119,7 +119,7 @@ Examples:
 */
 
 function filterByValue(arr, key) {
-
+    
 }
 
 /*
