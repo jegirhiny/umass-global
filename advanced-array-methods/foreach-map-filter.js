@@ -48,7 +48,7 @@ Examples:
 
 */
 function addKeyAndValue(arr, key, value) {
-
+    return arr.map((object, index, array) => object[key] = value);
 }
 
 /*
@@ -62,7 +62,20 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str) {
+    const vowelCount = {};
+    const vowels = 'aeiou';
 
+    (str.toLowerCase()).split('').forEach(value => {
+        if(vowels.includes(value)) {
+            if(vowelCount[value]) {
+                vowelCount[value]++;
+            } else {
+                vowelCount[value] = 1;
+            }
+        }
+    })
+
+    return vowelCount;
 }
 
 /*
@@ -119,7 +132,7 @@ Examples:
 */
 
 function filterByValue(arr, key) {
-    
+
 }
 
 /*
@@ -131,7 +144,17 @@ Examples:
 */
 
 function find(arr, searchValue) {
+    // improve this method (return inside forEach)
 
+    let found = undefined;
+
+    arr.forEach((value, index, array) => {
+        if(value === searchValue) {
+            found = searchValue;
+        }
+    })
+    
+    return found;
 }
 
 /*
@@ -155,7 +178,9 @@ Examples:
 */
 
 function removeVowels(str) {
+    const vowels = 'aeiou';
 
+    //complete code
 }
 
 /*
