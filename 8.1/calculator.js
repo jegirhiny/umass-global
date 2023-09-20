@@ -38,7 +38,7 @@ function update() {
   if(isNaN(result)) {
     updateMonthly(0);
   } else {
-    updateMonthly(calculateMonthlyPayment(getCurrentUIValues()));
+    updateMonthly(result);
   }
 }
 
@@ -46,7 +46,7 @@ function update() {
 // calculate the monthly payment.  The output should be a string
 // that always has 2 decimal places.
 function calculateMonthlyPayment(values) {
-  return (values.amount * (values.rate / 12)) / (1 - Math.pow(1 + (values.rate / 12), -1 * (values.years * 12)));
+  return String(Number((values.amount * (values.rate / 12)) / (1 - Math.pow(1 + (values.rate / 12), -1 * (values.years * 12)))).toFixed(2));
 }
 
 // Given a string representing the monthly payment value,
