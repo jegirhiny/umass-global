@@ -35,6 +35,7 @@ function showSuggestions(results) {
 }
 
 function useSuggestion(e) {
+	showSuggestions([]);
 	input.value = e.target.innerText;
 }
 
