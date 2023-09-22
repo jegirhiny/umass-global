@@ -15,7 +15,7 @@ input {
 }
 
 .search-container {
-  margin-top: 50vh;
+  margin-top: 45vh;
   width: fit-content;
 }
 
@@ -34,7 +34,7 @@ ul li {
 }
 
 ul li:hover {
-  background-color: #ff0000;
+  background-color: #ff4040;
 }
 
 input {
