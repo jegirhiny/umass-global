@@ -17,13 +17,15 @@ input {
 .search-container {
  /* TODO */
 }
-.search-container input,
-.search-container .suggestions {
+
+.search-container input, .search-container .suggestions {
   /* TODO */
 }
+
 .search-container input {
  /* TODO */
 }
+
 .search-container .suggestions {
    /* TODO */
 }
@@ -31,9 +33,11 @@ input {
 ul {
   /* TODO */
 }
+
 ul.has-suggestions {
   /* TODO */
 }
+
 ul li {
   /* TODO */
 }

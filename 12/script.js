@@ -6,22 +6,34 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(str) {
 	let results = [];
 
-	// TODO
-
+	fruit.forEach(value => {
+		if(value.toLowerCase().includes(str.toLowerCase())) {
+			results.push(value);
+		}
+	})
+	
 	return results;
 }
 
 function searchHandler(e) {
-	// TODO
+	showSuggestions(search(input.value), e.value);
 }
 
 function showSuggestions(results, inputVal) {
+	suggestions.innerHTML = '';
 
-	// TODO
+	if(results.length !== fruit.length) {
+		results.forEach(value => {
+			let li = document.createElement('li');
+			li.innerText = value;
+
+			suggestions.append(li);
+		})
+	}
 }
 
 function useSuggestion(e) {
-	// TODO
+	input.value = e.target.innerText;
 }
 
 input.addEventListener('keyup', searchHandler);
