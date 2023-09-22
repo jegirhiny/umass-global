@@ -1,5 +1,11 @@
 Quick Question #1
+Set{1, 2, 3, 4}
 
 Quick Question #2
+"ref"
 
 Quick Questions #3
+Map {
+    [1, 2, 3] : true.
+    [1, 2, 3] : false
+}
