@@ -12,8 +12,18 @@ class Game {
     this.currPlayer = 1;
     this.board = [];
 
-    this.makeBoard();
-    this.makeHtmlBoard();
+    const startBut = document.getElementById('start-button');
+
+    startBut.addEventListener('click', () => {
+      const board = document.getElementById('board');
+
+      if(board.children.length > 0) {
+        board.innerHTML = '';
+      }
+
+      this.makeBoard();
+      this.makeHtmlBoard();
+    })
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -26,8 +36,8 @@ class Game {
 
   makeHtmlBoard() {
     const board = document.getElementById('board');
-
     const top = document.createElement('tr');
+    
     top.setAttribute('id', 'column-top');
     top.addEventListener('click', (evt) => this.handleClick(evt));
 
