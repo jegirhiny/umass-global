@@ -10,6 +10,7 @@ class Game {
     this.HEIGHT = HEIGHT;
     this.WIDTH = WIDTH;
     this.currPlayer = 1;
+    this.gameOver = false;
     this.board = [];
 
     const startBut = document.getElementById('start-button');
@@ -21,13 +22,15 @@ class Game {
         board.innerHTML = '';
       }
 
+      this.board = [];
+      this.gameOver = false;
       this.makeBoard();
       this.makeHtmlBoard();
     })
 
     this.handleClick = this.handleClick.bind(this);
   }
-  
+
   makeBoard() {
     for (let y = 0; y < this.HEIGHT; y++) {
         this.board.push(Array.from({length: this.WIDTH}));
@@ -39,7 +42,11 @@ class Game {
     const top = document.createElement('tr');
     
     top.setAttribute('id', 'column-top');
-    top.addEventListener('click', (evt) => this.handleClick(evt));
+    top.addEventListener('click', (evt) => {
+      if(!this.gameOver) {
+        this.handleClick(evt)
+      }
+    });
 
     for (let x = 0; x < this.WIDTH; x++) {
         const headCell = document.createElement('td');
@@ -83,6 +90,7 @@ class Game {
   }
 
   endGame(msg) {
+    this.gameOver = true;
     alert(msg);
   }
 
@@ -128,7 +136,7 @@ class Game {
         const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
   
         if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
-            return true;
+          return true;
         }
       }
     }
