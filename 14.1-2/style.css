@@ -4,6 +4,10 @@ body {
     flex-direction: column;
 }
 
+div > div {
+    margin-bottom: 4vh;
+}
+
 #movie-form {
-    margin: 3vh 0;
+    margin: 4vh 0;
 }
