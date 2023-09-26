@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#movie-form {
+    margin: 3vh 0;
+}
