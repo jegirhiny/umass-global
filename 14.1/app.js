@@ -16,4 +16,4 @@ $('.form-control').on('keyup', () => {
     $('body').css('background-color', `rgb(${inputs.eq(0).val()}, ${inputs.eq(1).val()}, ${inputs.eq(2).val()})`);
 })
 
-$('img').on('click', (e) => $(e.target).remove())
+$('img').on('click', (e) => $(e.target).remove());
