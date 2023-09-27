@@ -11,16 +11,16 @@ What is a query string?
 - A query string is a collection of characters on the end of a URL to send additional information to a server.
 
 What are two HTTP verbs and how are they different?
-- 
+- GET (retrieve item(s)) and POST (create item(s)).
 
 What is an HTTP request?
-- 
+- A "message" sent by the client to a server to request some information.
 
 What is an HTTP response?
-- 
+- A "message" sent by the server to a client with the requested information.
 
 What is an HTTP header? Give a couple examples of request and response headers you have seen.
-- 
+- An HTTP header (Content-Type, Date/Time, Location, etc) is a piece of a request or response message that contains the information being exchanged.
 
 What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
-- 
+- URL Parse -> DNS -> HTTP Request -> HTTP Response -> Page Load
