@@ -1,14 +1,14 @@
 What is HTTP?
-- 
+- HTTP (Hypertext Transfer Protocol) is a set of rules that defines how information is communicated between the server and browser. 
 
 What is a URL?
-- 
+- URL (Uniform Resource Locator) is a unique identified use to locate a web page.
 
 What is DNS?
-- 
+- DNS (Domain Name System) is used to translate domain names into IP addresses and vice versa.
 
 What is a query string?
-- 
+- A query string is a collection of characters on the end of a URL to send additional information to a server.
 
 What are two HTTP verbs and how are they different?
 - 
