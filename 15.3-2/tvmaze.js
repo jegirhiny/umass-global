@@ -95,7 +95,11 @@ async function getEpisodesOfShow(id) {
   return episodes.data;
 }
 
-/** Write a clear docstring for this function... */
+
+/**
+ * Given an array of episodes, populates a list with the episode name, season number, and episode number.
+ * <li>Pilot (season 1, number 1)</li>
+ */
 
 function populateEpisodes(episodes) {
   const $episodesList = $('#episodesList');
