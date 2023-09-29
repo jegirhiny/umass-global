@@ -22,12 +22,12 @@ async function reqGif(searchTerm, apiKey) {
     if(content.length === 0) {
         console.log('Invalid entry term');
     } else {
-        const video = content[Math.floor(Math.random() * content.length)];
+        const selected = content[Math.floor(Math.random() * content.length)];
 
         $('body').append(
             $('<video>').append(
                 $('<source>', {
-                    src: video.images.looping.mp4,
+                    src: selected.images.looping.mp4,
                     type: 'video/mp4'
                 })
             ).attr('autoplay', 'autoplay')
