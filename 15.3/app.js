@@ -16,16 +16,15 @@ $('#remove-all').on('click', (e) => {
 }) 
 
 async function reqGif(searchTerm, apiKey) {
-    const res = await axios.get('http://api.giphy.com/v1/gifs/search', {params: {q : searchTerm, api_key : apiKey}});
-    const content = res.data.data;
+    const res = await axios.get('http://api.giphy.com/v1/gifs/search', {
+        params: {
+            q : searchTerm, 
+            api_key : apiKey
+        }
+    });
 
-    if(content.length === 0) {
-        console.log('Invalid entry term');
-    } else {
-        const selected = content[Math.floor(Math.random() * content.length)];
-
-        addGif(selected.images.looping.mp4);
-    }
+    const results = res.data.data, selected = results[Math.floor(Math.random() * results.length)];
+    addGif(selected.images.looping.mp4);
 }
 
 function addGif(source) {
