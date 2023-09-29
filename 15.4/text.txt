@@ -29,3 +29,23 @@ O(5 + 3 + 1)
 
 O(n + n^(1/2) + n^2 + n * log(n)^10)
 - O(n^2)
+
+Calculating Time Complexity
+
+Time Complexity:
+O(n)
+
+Time Complexity:
+O(n)
+
+Time Complexity:
+O(1)
+
+Time Complexity:
+O(n)
+
+Time Complexity:
+O(n^2)
+
+Time Complexity:
+O(n)
