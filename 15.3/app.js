@@ -24,13 +24,17 @@ async function reqGif(searchTerm, apiKey) {
     } else {
         const selected = content[Math.floor(Math.random() * content.length)];
 
-        $('body').append(
-            $('<video>').append(
-                $('<source>', {
-                    src: selected.images.looping.mp4,
-                    type: 'video/mp4'
-                })
-            ).attr('autoplay', 'autoplay')
-        );
+        addGif(selected.images.looping.mp4);
     }
+}
+
+function addGif(source) {
+    $('body').append(
+        $('<video>').append(
+            $('<source>', {
+                src: source,
+                type: 'video/mp4'
+            })
+        ).attr('autoplay', 'autoplay')
+    );
 }
