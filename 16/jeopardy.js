@@ -1,32 +1,11 @@
-// categories is the main data structure for the app; it looks like this:
-
 const NUM_CATEGORIES = 6;
+const NUM_QUESTIONS_PER_CAT = 5;
 const $table = $('#jeopardy');
 const $start = $('#start');
 let categories = [];
 
-//  [
-//    { title: "Math",
-//      clues: [
-//        {question: "2+2", answer: 4, showing: null},
-//        {question: "1+1", answer: 2, showing: null}
-//        ...
-//      ],
-//    },
-//    { title: "Literature",
-//      clues: [
-//        {question: "Hamlet Author", answer: "Shakespeare", showing: null},
-//        {question: "Bell Jar Author", answer: "Plath", showing: null},
-//        ...
-//      ],
-//    },
-//    ...
-//  ]
-
-
 /** Get NUM_CATEGORIES random category from API.
- *
- * Returns array of category ids
+ *    Returns array of category ids
  */
 
 async function getCategoryIds() {
@@ -36,40 +15,60 @@ async function getCategoryIds() {
 }
 
 /** Return object with data about a category:
- *
- *  Returns { title: "Math", clues: clue-array }
- *
- * Where clue-array is:
- *   [
- *      {question: "Hamlet Author", answer: "Shakespeare", showing: null},
- *      {question: "Bell Jar Author", answer: "Plath", showing: null},
- *      ...
- *   ]
+ *    Returns { title: "Math", clues: clue-array }
  */
 
 async function getCategory(catId) {
     return (await axios.get('http://jservice.io/api/category', {params : {id: catId}})).data;
 }
 
-/** Fill the HTML table#jeopardy with the categories & cells for questions.
- *
- * - The <thead> should be filled w/a <tr>, and a <td> for each category
- * - The <tbody> should be filled w/NUM_QUESTIONS_PER_CAT <tr>s,
- *   each with a question for each category in a <td>
- *   (initally, just show a "?" where the question/answer would go.)
- */
+/** Fills the HTML table #jeopardy with the categories & cells for questions. */
 
 function fillTable() {
     const $thead = $table.find('thead');
     const $theadTr = $thead.append('<tr>').find('tr');
 
     categories.forEach(category => {
-        $theadTr.append($('<td>', {text : category.title}))
-    })
+        $theadTr.append($('<td>', { text: category.title }));
+    });
 
     const $body = $table.find('tbody');
+    const clues = [];
 
-    console.log(categories)
+    categories.forEach(category => {
+        const categoryClues = getClues(category.clues);
+
+        categoryClues.forEach((clue, index) => {
+            if (!clues[index]) {
+                clues[index] = [];
+            }
+
+            clues[index].push(clue);
+        });
+    });
+
+    clues.forEach(clueGroup => {
+        const $bodyTr = $('<tr>');
+
+        clueGroup.forEach(clue => {
+            const $bodyTd = $('<td>', {text : '?'});
+            $bodyTd.attr('data', JSON.stringify(clue));
+            $bodyTr.append($bodyTd);
+        });
+
+        $body.append($bodyTr);
+    });
+}
+
+function getClues(clueObj) {
+    const catQuestions = [];
+
+    for(let i = 0; i < NUM_QUESTIONS_PER_CAT; i++) {
+        const index = Math.random() * clueObj.length;
+        catQuestions.push(clueObj.splice(index, 1)[0]);
+    }
+
+    return catQuestions;
 }
 
 /** Handle clicking on a clue: show the question or answer.
@@ -115,7 +114,7 @@ async function setupAndStart() {
 /** On click of start / restart button, set up game. */
 
 $start.on('click', (evt) => {
-    $()
+    $('#jeopardy').empty().append('<thead>').append('<tbody>');
 
     setupAndStart();
 })
