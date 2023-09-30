@@ -80,7 +80,17 @@ function getClues(clueObj) {
  * */
 
 function handleClick(evt) {
+    const clue = evt.target;
+    const clueData = JSON.parse(clue.getAttribute('data'));
+    let showing = clue.showing;
 
+    if(showing === undefined) {
+        clue.innerText = clueData.question;
+        clue.showing = 'question';
+    } else if(showing === 'question') {
+        clue.innerText = clueData.answer;
+        clue.showing = 'answer';
+    }
 }
 
 /** Wipe the current Jeopardy board, show the loading spinner,
@@ -121,3 +131,8 @@ $start.on('click', (evt) => {
 
 /** On page load, add event handler for clicking clues */
 
+$(window).on('load', () => {
+    $('table').on('click', 'td', (evt) => {
+        handleClick(evt);
+    });
+});
