@@ -1,5 +1,9 @@
 // categories is the main data structure for the app; it looks like this:
 
+const NUM_CATEGORIES = 6;
+const $table = $('#jeopardy');
+const $start = $('#start');
+
 //  [
 //    { title: "Math",
 //      clues: [
@@ -18,16 +22,16 @@
 //    ...
 //  ]
 
-let categories = [];
-
 
 /** Get NUM_CATEGORIES random category from API.
  *
  * Returns array of category ids
  */
 
-function getCategoryIds() {
+async function getCategoryIds() {
+    const resArray = (await axios.get('http://jservice.io/api/categories', {params : {count : NUM_CATEGORIES}})).data;
 
+    return resArray.map(category => category.id);
 }
 
 /** Return object with data about a category:
@@ -42,8 +46,8 @@ function getCategoryIds() {
  *   ]
  */
 
-function getCategory(catId) {
-
+async function getCategory(catId) {
+    return await axios.get('http://jservice.io/api/category', {params : {id: catId}})
 }
 
 /** Fill the HTML table#jeopardy with the categories & cells for questions.
@@ -92,13 +96,17 @@ function hideLoadingView() {
  * */
 
 async function setupAndStart() {
-    
+    const categoryIds = await getCategoryIds();
+    const categoryData = await Promise.all(categoryIds.map(async (id) => await getCategory(id)));
+
+    console.log(categoryData);
 }
 
 /** On click of start / restart button, set up game. */
 
-// TODO
+$start.on('click', (evt) => {
+    setupAndStart();
+})
 
 /** On page load, add event handler for clicking clues */
 
-// TODO
