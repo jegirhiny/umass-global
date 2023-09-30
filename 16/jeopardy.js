@@ -3,6 +3,7 @@
 const NUM_CATEGORIES = 6;
 const $table = $('#jeopardy');
 const $start = $('#start');
+let categories = [];
 
 //  [
 //    { title: "Math",
@@ -29,7 +30,7 @@ const $start = $('#start');
  */
 
 async function getCategoryIds() {
-    const resArray = (await axios.get('http://jservice.io/api/categories', {params : {count : NUM_CATEGORIES}})).data;
+    const resArray = (await axios.get('http://jservice.io/api/categories', {params : {count : NUM_CATEGORIES, offset : Math.floor(Math.random() * 101)}})).data;
 
     return resArray.map(category => category.id);
 }
@@ -47,7 +48,7 @@ async function getCategoryIds() {
  */
 
 async function getCategory(catId) {
-    return await axios.get('http://jservice.io/api/category', {params : {id: catId}})
+    return (await axios.get('http://jservice.io/api/category', {params : {id: catId}})).data;
 }
 
 /** Fill the HTML table#jeopardy with the categories & cells for questions.
@@ -58,8 +59,17 @@ async function getCategory(catId) {
  *   (initally, just show a "?" where the question/answer would go.)
  */
 
-async function fillTable() {
+function fillTable() {
+    const $thead = $table.find('thead');
+    const $theadTr = $thead.append('<tr>').find('tr');
 
+    categories.forEach(category => {
+        $theadTr.append($('<td>', {text : category.title}))
+    })
+
+    const $body = $table.find('tbody');
+
+    console.log(categories)
 }
 
 /** Handle clicking on a clue: show the question or answer.
@@ -97,14 +107,16 @@ function hideLoadingView() {
 
 async function setupAndStart() {
     const categoryIds = await getCategoryIds();
-    const categoryData = await Promise.all(categoryIds.map(async (id) => await getCategory(id)));
+    categories = await Promise.all(categoryIds.map(async (id) => await getCategory(id)));
 
-    console.log(categoryData);
+    fillTable();
 }
 
 /** On click of start / restart button, set up game. */
 
 $start.on('click', (evt) => {
+    $()
+
     setupAndStart();
 })
 
