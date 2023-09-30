@@ -101,12 +101,7 @@ function hideLoadingView() {
     $('#spin-container').css('visibility', 'hidden');
 }
 
-/** Start game:
- *
- * - get random category Ids
- * - get data for each category
- * - create HTML table
- * */
+/** Start game: */
 
 async function setupAndStart() {
     const categoryIds = await getCategoryIds();

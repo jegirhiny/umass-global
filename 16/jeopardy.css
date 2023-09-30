@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: #060ce9;
@@ -12,13 +17,17 @@ body {
 
 header {
   font-weight: bolder;
-  letter-spacing: 10px;
   text-transform: uppercase;
   margin-bottom: 2vh;
 }
 
+h1 {
+  letter-spacing: 10px;
+  margin-right: 10px;
+}
+
 table {
-  border-spacing: 2vh 2vw;
+  border-spacing: 1vh 1vw;
 }
 
 th, td {
@@ -32,6 +41,21 @@ thead > tr > td {
   font-weight: bold;
 }
 
+
+tbody > tr > td:hover { 
+  cursor: pointer;
+}
+
 td {
-  padding: 3vh 3vw;
+  padding: 2vh 2vw;
+  height: 3vh;
+  height: 8vh;
+  width: 11vw;
+}
+
+#start {
+  border-radius: 10px;
+  padding: 1vh 1vw;
+  cursor: pointer;
+  margin-top: 1vh;
 }
