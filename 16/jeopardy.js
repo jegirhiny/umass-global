@@ -29,7 +29,7 @@ function fillTable() {
     const $theadTr = $thead.append('<tr>').find('tr');
 
     categories.forEach(category => {
-        $theadTr.append($('<td>', { text: category.title }));
+        $theadTr.append($('<td>', {text: category.title}));
     });
 
     const $body = $table.find('tbody');
@@ -71,13 +71,7 @@ function getClues(clueObj) {
     return catQuestions;
 }
 
-/** Handle clicking on a clue: show the question or answer.
- *
- * Uses .showing property on clue to determine what to show:
- * - if currently null, show question & set .showing to "question"
- * - if currently "question", show answer & set .showing to "answer"
- * - if currently "answer", ignore click
- * */
+/** Handle clicking on a clue: show the question or answer. */
 
 function handleClick(evt) {
     const clue = evt.target;
@@ -98,13 +92,13 @@ function handleClick(evt) {
  */
 
 function showLoadingView() {
-
+    $('#spin-container').css('visibility', 'visible');
 }
 
 /** Remove the loading spinner and update the button used to fetch data. */
 
 function hideLoadingView() {
-
+    $('#spin-container').css('visibility', 'hidden');
 }
 
 /** Start game:
@@ -116,8 +110,10 @@ function hideLoadingView() {
 
 async function setupAndStart() {
     const categoryIds = await getCategoryIds();
-    categories = await Promise.all(categoryIds.map(async (id) => await getCategory(id)));
+    const categoryRes = categoryIds.map(async (id) => await getCategory(id));
+    categories = await Promise.all(categoryRes);
 
+    hideLoadingView();
     fillTable();
 }
 
@@ -125,13 +121,15 @@ async function setupAndStart() {
 
 $start.on('click', (evt) => {
     $('#jeopardy').empty().append('<thead>').append('<tbody>');
-
+    showLoadingView();
     setupAndStart();
 })
 
 /** On page load, add event handler for clicking clues */
 
 $(window).on('load', () => {
+    hideLoadingView();
+
     $('table').on('click', 'td', (evt) => {
         handleClick(evt);
     });
