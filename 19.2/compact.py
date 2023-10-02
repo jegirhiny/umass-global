@@ -1,4 +1,12 @@
 def compact(lst):
+    truthy_list = []
+
+    for item in lst:
+        if item:
+            truthy_list.append(item)
+
+    return truthy_list
+
     """Return a copy of lst with non-true elements removed.
 
         >>> compact([0, 1, 2, '', [], False, (), None, 'All done'])

@@ -1,4 +1,17 @@
 def sum_range(nums, start=0, end=None):
+    sum = 0
+
+    if end == None:
+        end = len(nums) - 1
+
+    for num in range(start, end + 1):
+        if num >= len(nums):
+            break
+
+        sum += nums[num]
+    
+    return sum
+
     """Return sum of numbers from start...end.
 
     - start: where to start (if not provided, start at list start)

@@ -1,4 +1,17 @@
 def two_oldest_ages(ages):
+    ages.sort(reverse=True)
+    oldest = None
+    second_oldest = None
+
+    for age in ages:
+        if oldest == None:
+            oldest = age
+        elif age != oldest:
+            second_oldest = age
+            break
+
+    return (second_oldest, oldest)
+
     """Return two distinct oldest ages as tuple (second-oldest, oldest)..
 
         >>> two_oldest_ages([1, 2, 10, 8])
@@ -13,11 +26,3 @@ def two_oldest_ages(ages):
         >>> two_oldest_ages([1, 5, 5, 2])
         (2, 5)
     """
-
-    # NOTE: don't worry about an optimized runtime here; it's fine if
-    # you have a runtime worse than O(n)
-
-    # NOTE: you can sort lists with lst.sort(), which works in place (mutates);
-    # you may find it helpful to research the `sorted(iter)` function, which
-    # can take *any* type of list-like-thing, and returns a new, sorted list
-    # from it.

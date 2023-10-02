@@ -1,4 +1,6 @@
 def friend_date(a, b):
+    return len(set(a[2]) & set(b[2])) > 0
+
     """Given two friends, do they have any hobbies in common?
 
     - a: friend #1, a tuple of (name, age, list-of-hobbies)
