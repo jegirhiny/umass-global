@@ -2,8 +2,8 @@
 
 class SerialGenerator:
     def __init__(self, start = 100):
-    self.serial_number = start
-    self.start = start
+        self.serial_number = start
+        self.start = start
 
     def generate(self):
         self.serial_number += 1
