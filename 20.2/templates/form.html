@@ -4,8 +4,13 @@
 
 {% block content %}
 
-    <form action="">
-        // # of input(s) based on story
+    <form action="/story" >
+        {% for prompt in prompts %}
+            <label>{{ prompt }}</label>
+            <input type="text" name="{{ prompt }}">
+            <br>
+        {% endfor %}
+        <button type="submit">Submit</button>
     </form>
 
 {% endblock %}
