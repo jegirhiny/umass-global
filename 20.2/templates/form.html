@@ -4,7 +4,8 @@
 
 {% block content %}
 
-    <form action="/story" >
+    <form action="/story">
+        <input type="hidden" name="selected_story" value="{{ selected_story }}">
         {% for prompt in prompts %}
             <label>{{ prompt }}</label>
             <input type="text" name="{{ prompt }}">

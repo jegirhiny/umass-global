@@ -1,8 +1,8 @@
 const MIN_LENGTH = 2, MIN_RATING = 0, MAX_RATING = 10;
-const movieContainer = $('#movie-container');
+const $movieContainer = $('#movie-container');
 
 const appendMovie = (title, rating) => {
-    movieContainer.append(
+    $movieContainer.append(
         $('<div></div>').append(
             $(`<h2>`, {text : `${title} ${rating}/10`}).attr('title', title).attr('rating', rating)
         ).append(
@@ -17,7 +17,7 @@ const appendMovie = (title, rating) => {
 }
 
 const sortByRating = () => {
-    let sorted = [], movieData = movieContainer.find('h2');
+    let sorted = [], movieData = $movieContainer.find('h2');
 
     for(let rating = 0; rating < 11; rating++) {
         movieData.toArray().forEach(value => {
@@ -29,14 +29,26 @@ const sortByRating = () => {
         })
     }
 
-    movieContainer.empty();
+    $movieContainer.empty();
     
     sorted.forEach((movie) => {
         appendMovie(movie.getAttribute('title'), movie.getAttribute('rating'));
     })
 }
 
+$movieContainer.on('click', (e) => {
+    if($movieContainer.children().length === 0) {
+        $sort.css('visibility', 'hidden')
+    }
+})
+
 $('#movie-form').on('submit', (e) => {
+    $sort = $('#sort-button');
+
+    if($sort.css('visibility') == 'hidden') {
+        $sort.css('visibility', '')
+    }
+
     e.preventDefault();
     const [title, rating] = [$('input').eq(0).val(), $('input').eq(1).val()];
 
