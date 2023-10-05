@@ -14,9 +14,8 @@
 
     <form action="/answer" method="post">
         <label>{{ question.question }}</label><br>
-        <input type="hidden" name="question_index" value="{{ question_index }}">
         {% for choice in question.choices %}
-            <input id="{{ choice }}" type="radio" name="answer">
+            <input id="{{ choice }}" type="radio" name="answer" value="{{ choice }}">
             <label for="{{ choice }}">{{ choice }}</label><br>
         {% endfor %}
         <button type="submit">Submit Response</button>
