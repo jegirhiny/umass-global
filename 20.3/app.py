@@ -1,4 +1,4 @@
-from flask import Flask, session, request, render_template, redirect
+from flask import Flask, session, request, flash, render_template, redirect
 from surveys import *
 
 app = Flask(__name__)
@@ -30,6 +30,7 @@ def question(question_index):
     question_length = len(satisfaction_survey.questions)
 
     if not question_index.isnumeric() or int(question_index) != len(session['responses']) or int(question_index) >= question_length or int(question_index) < 0:
+        flash("Invalid question number. Please try a valid question.", 'error')
         return redirect(f'/questions/{len(session.get("responses", []))}')
 
     question = satisfaction_survey.questions[int(question_index)]
