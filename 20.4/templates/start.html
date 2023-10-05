@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Start Page{% endblock %}
+
+{% block content %}
+
+    {% block info_block %}
+        <h1>{{ title }}</h1>
+        <h2>{{ instructions }}</h2>
+    {% endblock %}
+
+    <a href="/questions/0"><button>Go to Survey</button></a>
+
+{% endblock %}

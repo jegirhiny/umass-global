@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Question Page{% endblock %}
+
+{% block content %}
+
+    <h1>THANK YOU</h1>
+    <h2>FOR COMPLETING THE SURVEY</h2>
+
+    <ul>
+    {% for question, answer in question_answer_pairs %}
+        <li>{{ question.question }}</li>
+            <ul>
+                <li>{{ answer }}</li>
+            </ul>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
