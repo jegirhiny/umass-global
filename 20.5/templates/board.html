@@ -19,12 +19,18 @@
     {% endfor %}
 
     <form method="get" id="word-form">
+        <button type="button" id="restart">Restart</button>
         <input placeholder="Guess the Word" id="word">
         <input type="submit">
-        <label id="score">Score: 0</label>
     </form>
 
-    <h2 id="notification"></h2>
+    <div class="misc-container">
+        <h3 id="score">Score: 0</h3>
+        <h3 id="played">Game: {{ games_played }}</h3>
+        <h3 id="high-score">High Score: {{ high_score }}</h3>
+    </div>
+
+    <h4 id="notification" style="visibility: hidden;"></h4>
 
     <script src="https://unpkg.com/jquery"></script>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>

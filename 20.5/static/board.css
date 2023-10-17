@@ -4,7 +4,7 @@
     background-color: #1e1e1e;
     width: fit-content;
     align-items: center;
-    height: 15vh;
+    height: 14vh;
 }
 
 .row h2 {
@@ -13,16 +13,36 @@
     width: 10vw;
 }
 
-form {
-    margin-top: 3vh;
+form, .misc-container, h4 {
+    margin-top: 2vh;
 }
 
-input {
+.misc-container {
+    display: flex;
+}
+
+input, button {
+    font-size: larger;
     text-align: center;
     height: 5vh;
-    width: 20vw;
+    width: 25vw;
 }
 
-input[type="submit"] {
+input[type="submit"], button {
+    cursor: pointer;
     width: 10vw;
+}
+
+h3 {
+    padding: 1vh 2vw;
+    margin: 0 1vw;
+}
+
+h3 {
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: medium;
+    font-weight: normal;
 }
