@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block title %}Flask Boggle{% endblock %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="../static/board.css">  
+
+{% endblock %}
+
+{% block body %}
+
+    {% for row in board %}
+        <div class="row">
+            {% for letter in row %}
+                <h2>{{ letter }}</h2>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <form method="get" id="word-form">
+        <input placeholder="Guess the Word" id="word">
+        <input type="submit">
+        <label id="score">Score: 0</label>
+    </form>
+
+    <h2 id="notification"></h2>
+
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="../static/board.js"></script>
+
+{% endblock %}

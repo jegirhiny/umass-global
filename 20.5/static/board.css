@@ -1,0 +1,28 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: #1e1e1e;
+    width: fit-content;
+    align-items: center;
+    height: 15vh;
+}
+
+.row h2 {
+    text-align: center;
+    color: #FFFFFF;
+    width: 10vw;
+}
+
+form {
+    margin-top: 3vh;
+}
+
+input {
+    text-align: center;
+    height: 5vh;
+    width: 20vw;
+}
+
+input[type="submit"] {
+    width: 10vw;
+}
