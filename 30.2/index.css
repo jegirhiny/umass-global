@@ -1,0 +1,13 @@
+* {
+    text-align: center;
+}
+
+div {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    width: 25vw;
+}
