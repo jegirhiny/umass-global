@@ -1,0 +1,28 @@
+.tweet {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    list-style: none;
+}
+
+.tweet li {
+    margin-bottom: 5px;
+}
+
+.username {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.name {
+    color: #ff0000;
+}
+
+.date {
+    font-style: italic;
+    color: #555;
+}
+
+.message {
+    font-size: 1.2rem;
+}
