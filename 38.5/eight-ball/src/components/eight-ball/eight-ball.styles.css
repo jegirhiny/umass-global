@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    cursor: pointer;
+    border: white solid 5px;
+}
+
+h3 {
+    color: white;
+}
