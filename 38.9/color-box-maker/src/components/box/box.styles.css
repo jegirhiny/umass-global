@@ -1,0 +1,12 @@
+button {
+    cursor: pointer;
+    height: 30px;
+    width: -webkit-fill-available;
+}
+
+.outer-box {
+    height: fit-content;
+    width: fit-content;
+    border: solid white 5px;
+    margin: 2vh 2vw;
+}

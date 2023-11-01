@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.box-cotainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2vh;
+    height: fit-content;
+    flex-wrap: wrap;
+    width: 100vw;
+}
