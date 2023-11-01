@@ -1,17 +1,10 @@
-import { useState } from 'react';
 import './todo.styles.css';
 
-const Todo = ({ text }) => {
-    const [ display, setDisplay ] = useState(true);
-
-    if(!display) {
-        return null;
-    }
-
+const Todo = ({ text , deleteTodo }) => {
     return (
         <div className='container'>
             <h3>{ text }</h3>
-            <button onClick={() => setDisplay(false)}>X</button>
+            <button onClick={() => deleteTodo(text)}>X</button>
         </div>
     );
 }
