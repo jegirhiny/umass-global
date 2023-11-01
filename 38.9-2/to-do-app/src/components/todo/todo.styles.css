@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #3d3d3d;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 2vh 0;
+    color: #ffffff;
+    padding: 0 2vw;
+}
+
+.container > * {
+    height: fit-content;
+    margin: 1vh 1vw;
+}
+
+.container > button {
+    cursor: pointer;
+}
