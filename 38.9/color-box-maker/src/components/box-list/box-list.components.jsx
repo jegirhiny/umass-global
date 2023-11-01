@@ -7,14 +7,20 @@ const BoxList = () => {
     const [ boxes, setBox ] = useState([]);
 
     const addBox = (formData) => {
-        setBox([...boxes, <Box key={Date.now()} color={formData.color} width={formData.width} height={formData.height} />]);
+        setBox([...boxes, formData]);
+    }
+
+    const removeBox = (id) => {
+        setBox(boxes.filter((formData, index) => index !== id))
     }
 
     return (
         <div className='container'>
             <NewBoxForm addBox={addBox} />
             <div className='box-cotainer'>
-                {boxes}
+                {boxes.map((formData, index) => 
+                    <Box key={index} id={index} color={formData.color} width={formData.width} height={formData.height} removeBox={removeBox} />
+                )}
             </div>
         </div>
     );
