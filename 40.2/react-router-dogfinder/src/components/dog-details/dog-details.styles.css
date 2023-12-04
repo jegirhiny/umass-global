@@ -1,0 +1,25 @@
+.details {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-img {
+    width: 15vw;
+    border: 0.5px solid #1e1e1e;
+}
+
+.info {
+    width: 25vw;
+}
+
+.basic-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.extra-info {
+    display: flex;
+    justify-content: center;
+}

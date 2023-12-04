@@ -1,0 +1,26 @@
+.dog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dog-item {
+    height: fit-content;
+    width: 23vw;
+    margin: 3vh 3vw;
+}
+
+.dog-item:hover {
+    cursor: pointer;
+}
+
+.info-primary {
+    display: flex;
+    justify-content: center;
+}
+
+.prev-img {
+    width: inherit;
+    border: 0.5px solid #1e1e1e;
+}
