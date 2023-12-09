@@ -1,9 +1,9 @@
 import './dog-details.styles.css'
-import { useParams } from 'react-router-dom';
+import { useLocation  } from 'react-router-dom';
 
-const DogDetails = ({ dogs }) => {
-    const { name } = useParams();
-    const dog = dogs.find(dog => dog.name === name);
+const DogDetails = () => {
+    const { state } = useLocation();
+    const dog = state.dog;
 
     return (
         <div className='details'>
