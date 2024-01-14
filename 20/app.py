@@ -39,4 +39,4 @@ def result():
     convert_res = requests.get(f"{BASE_API}{CONVERT_ENDPOINT}?access_key={ACCESS_KEY}&from={from_currency}&to={to_currency}&amount={amount}")
     result = convert_res.json()["result"]
 
-    return render_template('result.html', result = round(result, 2))
+    return render_template('result.html', result = round(result, 2), to_currency = to_currency)
