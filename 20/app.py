@@ -15,8 +15,7 @@ def landing():
 
     >>> with app.test_client() as client:
     ...     response = client.get('/')
-    ...     response.status_code
-    200
+    ...     assert response.status_code == 200
     """
     return render_template('form.html')
 
@@ -28,20 +27,19 @@ def result():
     >>> with app.test_client() as client:
     ...     # Test with valid inputs
     ...     response = client.get('/result?from_currency=USD&to_currency=EUR&amount=100')
-    ...     response.status_code
-    200
+    ...     assert response.status_code == 200
+    ...
     ...     # Test with invalid from_currency
     ...     response = client.get('/result?from_currency=INVALID&to_currency=EUR&amount=100')
-    ...     response.status_code
-    404
+    ...     assert response.status_code == 404
+    ...
     ...     # Test with invalid to_currency
     ...     response = client.get('/result?from_currency=USD&to_currency=INVALID&amount=100')
-    ...     response.status_code
-    404
+    ...     assert response.status_code == 404
+    ...
     ...     # Test with negative amount
     ...     response = client.get('/result?from_currency=USD&to_currency=EUR&amount=-100')
-    ...     response.status_code
-    404
+    ...     assert response.status_code == 404
     """
     from_currency = request.args['from_currency'].upper()
     to_currency = request.args['to_currency'].upper()
