@@ -17,58 +17,99 @@ class BinaryTree {
    * the length of the shortest path from the root to a leaf. */
 
   minDepth() {
-
+    if (!this.root) {
+      return 0;
+    }
+    
+    const minDepthHelper = (node) => {
+      if (!node) {
+        return Infinity;
+      }
+      
+      if (!node.left && !node.right) {
+        return 1;
+      }
+      
+      return Math.min(minDepthHelper(node.left), minDepthHelper(node.right)) + 1;
+    };
+    
+    return minDepthHelper(this.root);
   }
 
   /** maxDepth(): return the maximum depth of the tree -- that is,
    * the length of the longest path from the root to a leaf. */
 
   maxDepth() {
-
+    if (!this.root) {
+      return 0;
+    }
+    
+    const maxDepthHelper = (node) => {
+      if (!node) {
+        return 0;
+      }
+      
+      return Math.max(maxDepthHelper(node.left), maxDepthHelper(node.right)) + 1;
+    };
+    
+    return maxDepthHelper(this.root);
   }
 
   /** maxSum(): return the maximum sum you can obtain by traveling along a path in the tree.
    * The path doesn't need to start at the root, but you can't visit a node more than once. */
 
   maxSum() {
+    if (!this.root) {
+      return 0;
+    }
 
+    let maxSum = -Infinity;
+
+    const maxSumHelper = (node) => {
+      if (!node) {
+        return 0;
+      }
+      
+      const leftMax = Math.max(maxSumHelper(node.left), 0);
+      const rightMax = Math.max(maxSumHelper(node.right), 0);
+      maxSum = Math.max(maxSum, leftMax + rightMax + node.val);
+
+      return Math.max(leftMax, rightMax) + node.val;
+    };
+
+    maxSumHelper(this.root);
+    return maxSum;
   }
 
   /** nextLarger(lowerBound): return the smallest value in the tree
    * which is larger than lowerBound. Return null if no such value exists. */
 
   nextLarger(lowerBound) {
+    if (!this.root) {
+      return null;
+    }
 
-  }
+    let nextLargerVal = Infinity;
 
-  /** Further study!
-   * areCousins(node1, node2): determine whether two nodes are cousins
-   * (i.e. are at the same level but have different parents. ) */
+    const nextLargerHelper = (node) => {
+      if (!node) {
+        return;
+      }
 
-  areCousins(node1, node2) {
+      if (node.val > lowerBound && node.val < nextLargerVal) {
+        nextLargerVal = node.val;
+      }
 
-  }
+      if (node.val > lowerBound) {
+        nextLargerHelper(node.left);
+        nextLargerHelper(node.right);
+      } else if (node.val <= lowerBound) {
+        nextLargerHelper(node.right);
+      }
+    };
 
-  /** Further study!
-   * serialize(tree): serialize the BinaryTree object tree into a string. */
-
-  static serialize() {
-
-  }
-
-  /** Further study!
-   * deserialize(stringTree): deserialize stringTree into a BinaryTree object. */
-
-  static deserialize() {
-
-  }
-
-  /** Further study!
-   * lowestCommonAncestor(node1, node2): find the lowest common ancestor
-   * of two nodes in a binary tree. */
-
-  lowestCommonAncestor(node1, node2) {
-    
+    nextLargerHelper(this.root);
+    return nextLargerVal === Infinity ? null : nextLargerVal;
   }
 }
 
