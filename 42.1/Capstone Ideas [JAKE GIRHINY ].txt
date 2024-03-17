@@ -1,0 +1,14 @@
+All projects to includes React, JavaScript. HTML, CSS, and LowDB.
+
+Real Estate Marketplace
+https://rapidapi.com/apidojo/api/realty-in-us/
+Helping to connect buyers and sellers, made easy.
+
+News Website
+https://newsapi.org/?ref=apilist.fun
+https://apilist.fun/api/npr-one
+It’s your news - start reading or listening now.
+
+Movie Suggestions
+https://www.omdbapi.com/
+Need a movie? Find yours today.
