@@ -1,0 +1,47 @@
+1. What tech stack will you use for your project? 
+    - React, Node, JavaScript, HTML, and CSS.
+
+2. What type of development is the focus?
+    - An evenly focused full-stack application.
+
+3. Will this be a website? A mobile app? 
+    - This application will be a website.
+
+4. What is your project be designed to achieve?
+    - Connecting sellers and buyers.
+
+5. What is the demographic of your users?
+    - Homebuyers, sellers, renters or investors.
+
+6. What data do you plan on using?
+    - Realty in US to query properties.
+
+7. Outline your approach for this project.
+
+    a. What does the database look like?
+        i. A simplistic, lightweight, and easy-to-use database.
+
+    b. What kinds of issues might you run into with your API? 
+        i. Rate limits, data quality, and API downtime.
+
+    c. Is there any sensitive information you need to secure?
+        i. Profile information such as the user’s password.
+
+    d. What functionality will your app include?
+        i. Search - Querys the database and displays results
+        ii. Filter - Shows relevant estates based on conditions
+        iii. Sort - Organizes response based on parameters
+        iv. Login - Allows the user to make a profile to save information
+        v. Contact - Builtin messaging platform, with send to email
+        vi. Saved - A place to store your favorite homes for later
+        vii. History - Logs all previous viewings of estates
+
+8. What will the user flow look like?
+    a. Login? (Optional)
+    b. Propety Search
+        i. Details
+        ii. Contact
+    c. Profile
+        Saved
+        ii. History
+        iii. Messages
