@@ -73,19 +73,16 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory(user, newStory) {
-    data = {
-      token: localStorage.getItem('token'),
-      story: {
-        author: newStory.author,
-        title: newStory.title,
-        url: newStory.url
-      }
+  async addStory(user, storyInfo) {
+    const data = {
+      "token" : user.loginToken, 
+      "story" : storyInfo
     }
 
-    let story_res = await axios.post('https://hack-or-snooze-v3.herokuapp.com/stories', data)
+    const res = await axios.post("https://hack-or-snooze-v3.herokuapp.com/stories", data, {headers: {"Content-Type": "application/json"}});
+    const {storyId, title, author, url, username, createAt} = res.data.story;
 
-    // data returned from api
+    return new Story({storyId, title, author, url, username, createAt});
   }
 }
 

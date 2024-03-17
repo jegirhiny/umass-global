@@ -9,7 +9,7 @@
 function navAllStories(evt) {
   console.debug("navAllStories", evt);
   hidePageComponents();
-  putStoriesOnPage();
+  getAndShowStoriesOnStart();
 }
 
 $body.on("click", "#nav-all", navAllStories);
@@ -31,6 +31,32 @@ function updateNavOnLogin() {
   console.debug("updateNavOnLogin");
   $(".main-nav-links").show();
   $navLogin.hide();
+  $loginForm.hide();
   $navLogOut.show();
+  $signupForm.hide();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
+
+/** Show story form on click on "submit" */
+
+function showStoryForm() {
+  console.debug("showStoryForm");
+  hidePageComponents();
+  $signupForm.show();
+  $storyForm.show();
+}
+
+$storySubmit.on("click", showStoryForm);
+
+/** submits new story form */
+
+$storyForm.on("submit", function (e) {
+  e.preventDefault();
+
+  const storyTitle = $('#story-title').val();
+  const storyAuthor = $('#story-author').val();
+  const storyUrl = $('#story-url').val();
+
+  submitNewStory(storyTitle, storyAuthor, storyUrl);
+  e.target.reset();
+});

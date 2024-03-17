@@ -22,15 +22,15 @@ async function getAndShowStoriesOnStart() {
 function generateStoryMarkup(story) {
   // console.debug("generateStoryMarkup", story);
 
-  const hostName = story.getHostName();
+
   return $(`
       <li id="${story.storyId}">
-        <a href="${story.url}" target="a_blank" class="story-link">
-          ${story.title}
-        </a>
-        <small class="story-hostname">(${hostName})</small>
-        <small class="story-author">by ${story.author}</small>
-        <small class="story-user">posted by ${story.username}</small>
+        <h5 class="cursor" onClick="setFavorite('${story.storyId}')" style="display: inline">${currentUser && currentUser.favorites.filter(favorite => favorite.storyId === story.storyId).length > 0 ? "★" : "☆"}</h5>
+        <a href="${story.url}" target="a_blank" class="story-link">${story.title}</a>
+        <small class="story-hostname">(${story.getHostName()})</small>
+        <small class="story-user green">by ${story.author}</small>
+        <small class="story-user orange">posted by ${story.username}</small>
+        ${currentUser !== undefined && story.username === currentUser.username ? `<small class="underline" onClick="deleteStory('${story.storyId}')">remove</small>` : ''}
       </li>
     `);
 }
@@ -49,4 +49,10 @@ function putStoriesOnPage() {
   }
 
   $allStoriesList.show();
+}
+
+/** Submits form data to backend to post */
+
+async function submitNewStory(title, author, url) {
+  await storyList.addStory(currentUser, {title, author, url});
 }

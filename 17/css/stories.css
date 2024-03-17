@@ -7,7 +7,7 @@
 .stories-list > li {
   color: gray;
   font-size: 0.8rem;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 #stories-loading-msg {
@@ -36,4 +36,29 @@
 
 .story-user {
   display: block;
+  margin: .5em 0;
+  font-size: 12px;
+}
+
+.cursor {
+  cursor: pointer !important;
+  padding: 0 2.5px;
+  margin: 0 2.5px;
+}
+
+.underline {
+  cursor: pointer !important;
+  margin-left: 2em;
+}
+
+.underline:hover {
+  text-decoration: underline;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
 }

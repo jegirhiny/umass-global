@@ -114,3 +114,27 @@ function updateUIOnUserLogin() {
 
   updateNavOnLogin();
 }
+
+//https://hack-or-snooze-v3.herokuapp.com/users/username/favorites/storyId
+
+async function setFavorite(storyId) {
+  const isFavorited = currentUser.favorites.find(story => story.storyId === storyId) !== undefined;
+
+  if(!isFavorited) {
+    await axios.post(`https://hack-or-snooze-v3.herokuapp.com/users/${currentUser.username}/favorites/${storyId}`, {token: localStorage.getItem('token')});
+  } else {
+    await axios.delete(`https://hack-or-snooze-v3.herokuapp.com/users/${currentUser.username}/favorites/${storyId}`, {data : {token: localStorage.getItem('token')}});
+  }
+
+  location.reload();
+}
+
+async function deleteStory(storyId) {
+  const hasStory = storyList.stories.find(story => story.storyId === storyId) !== undefined;
+
+  if(hasStory) {
+    await axios.delete(`https://hack-or-snooze-v3.herokuapp.com/stories/${storyId}`, {data : {token: localStorage.getItem('token')}});
+  }
+
+  location.reload();
+}
