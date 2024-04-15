@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}User Details{% endblock %}
+
+{% block content %}
+
+    <h1>User</h1>
+    
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    <img src="{{ user.image_url }}" alt="" style="height: 150px">
+
+    <div style="display: flex; width: 150px; justify-content: space-between;">
+        <form action="/users/{{ user.id }}/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/users/{{ user.id }}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+
+{% endblock %}
