@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+
+    <h1>Users</h1>
+
+    <div style="display: flex; flex-direction: column;">
+        {% for user in users %}
+            <a href="/users/{{ user.id }}" style="margin-top: 10px;">{{ user.first_name }} {{ user.last_name }}</a>
+        {% endfor %}
+        <a href="/users/new" style="margin-top: 10px;">Add User</a>
+    </div>
+
+{% endblock %}
