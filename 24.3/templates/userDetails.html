@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block title %}User Details{% endblock %}
+
+{% block content %}
+
+    <h1>User</h1>
+    
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    <img src="{{ user.image_url }}" alt="" style="height: 150px">
+
+    <ul>
+        {% for post in posts %}
+            <li><a href="/posts/{{ post.id }}" style="margin-top: 10px;">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <form action="/users" method="GET">
+            <button type="submit">Cancel</button>
+        </form>
+        <form action="/users/{{ user.id }}/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/users/{{ user.id }}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/users/{{ user.id }}/posts/new" method="GET">
+            <button type="submit">New Post</button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}New User Form{% endblock %}
+
+{% block content %}
+
+    <h1>Edit Post</h1>
+
+    <form action="/posts/{{ post_id }}/edit" method="POST">
+        <input type="text" name="title" placeholder="Title" required/>
+        <input type="text" name="content" placeholder="Content" required/>
+
+        {% for tag in tags %}
+            <label for="{{ tag.name }}">{{ tag.name }}</label>
+            <input type="checkbox" name="{{ tag.id }}" id="{{ tag.name }}" placeholder="{{ tag.name }}"/>
+        {% endfor %}
+
+        <input type="submit" value="Submit" />
+    </form>
+
+{% endblock %}
