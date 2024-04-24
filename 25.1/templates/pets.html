@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block title %}Pets{% endblock %}
+
+{% block content %}
+
+    <div style="display: flex;"">
+        {% for pet in pets %}
+            <div style="padding: 20px 40px;">
+                <h2 style="font-family: Arial">{{ pet.name }}</h2>
+
+                {% if pet.photo_url %}
+                    <img src="{{ pet.photo_url }}" alt="Photo of {{ pet.name }}" style="height: 100px;">
+                {% endif %}
+
+                {% if pet.available %}
+                    <h5 style="font-family: Arial; font-weight: bold; text-transform: uppercase">
+                        <span
+                        style="
+                            color: #7fff00;
+                            background-color: #000000;
+                            padding: 3px 5px;
+                            border-radius: 100%;
+                        "
+                        >✔</span
+                        >
+                        Available
+                    </h5>
+                {% endif %}
+
+                <a href="{{ pet.id }}" style="font-family: Arial">View</a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

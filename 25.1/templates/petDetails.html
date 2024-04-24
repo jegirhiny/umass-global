@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block title %}Pet Details{% endblock %}
+
+{% block content %}
+
+    <div style="display: flex; flex-direction: column; width: fit-content; padding: 20px 40px;">
+        <h3 style="font-family: Arial">Name: {{ pet.name }}</h3>
+        <h3 style="font-family: Arial">Species: {{ pet.species }}</h3>
+
+        {% if pet.age %}
+            <h3 style="font-family: Arial">Age: {{ pet.age }}</h3>
+        {% endif %}
+
+        {% if pet.photo_url %}
+            <img src="{{ pet.photo_url }}" alt="Photo of {{ pet.name }}" style="height: 100px;">
+        {% endif %}
+
+        <a href="/" style="font-family: Arial">Back</a>
+    </div>
+
+    <form action="/{{ pet.id }}" method="post" style="padding: 20px 40px;">
+        {{ form.hidden_tag() }}
+
+        {% for field in form if field.widget.input_type != 'hidden' %}
+            <p>
+                {{ field.label }}
+                {{ field }}
+
+                {% for error in field.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+        {% endfor %}
+
+        <button style="cursor: pointer;">Submit</button>
+    </form>
+
+{% endblock %}
