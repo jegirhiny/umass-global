@@ -22,7 +22,7 @@ function sqlForPartialUpdate(table, items, key, id) {
   // FIXES BUG 5
   for (let itemKey in items) {
     if (itemKey.startsWith("_")) {
-      delete items[itemKey]
+      delete items[itemKey];
     }
   }
 
@@ -38,8 +38,7 @@ function sqlForPartialUpdate(table, items, key, id) {
   let values = Object.values(items);
   values.push(id);
 
-  return {query, values};
+  return { query, values };
 }
-
 
 module.exports = sqlForPartialUpdate;

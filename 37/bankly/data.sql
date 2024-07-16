@@ -1,4 +1,3 @@
-
 CREATE TABLE users (
     username text PRIMARY KEY,
     first_name text NOT NULL,
@@ -8,4 +7,3 @@ CREATE TABLE users (
     password text NOT NULL,
     admin boolean DEFAULT false
 );
-

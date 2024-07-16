@@ -59,7 +59,7 @@ function timeWord(time) {
     minute = minuteWords[minutes];
   } else {
     minute = tensWords[Math.floor(minutes / 10)];
-    
+
     if (minutes % 10 !== 0) {
       minute += ` ${minuteWords[minutes % 10]}`;
     }
